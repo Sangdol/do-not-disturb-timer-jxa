@@ -7,7 +7,6 @@ const exec = promisify(require('child_process').exec)
 async function isOn () {
   // eg., res = { stdout: '0\n', stderr: '' }
   const res = await exec('defaults read com.apple.controlcenter "NSStatusItem Visible DoNotDisturb"')
-  //console.log(res)
   return res.stdout.trim() == '1'
 };
 
@@ -29,9 +28,6 @@ function toggleDoNotDisturb() {
   node index.js 60 # DND for 60 minutes
   `;
 
-  //console.log(args)
-  //console.log('Hello!')
-
   if (args.length == 0) {
     console.log(usage);
     process.exit();
@@ -39,7 +35,6 @@ function toggleDoNotDisturb() {
 
   const duration = args[0]
   let on = await isOn()
-  console.log('on', on)
   if (!on) {
     await runJxa(toggleDoNotDisturb)
   }
@@ -48,7 +43,6 @@ function toggleDoNotDisturb() {
   await new Promise(resolve => setTimeout(resolve, duration * 1000 * 60));
 
   on = await isOn()
-  console.log('off', on)
   if (on) {
     await runJxa(toggleDoNotDisturb)
   }
