@@ -16,6 +16,7 @@ function toggleDoNotDisturb() {
   app.includeStandardAdditions = true
 
   const se = Application('System Events')
+  // You need to set the shortcut according to README. You can also change the key combination.
   se.keystroke('z', { using: ['shift down', 'command down', 'control down', 'option down'] })
 }
 
