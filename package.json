@@ -1,0 +1,15 @@
+{
+  "name": "do-not-disturb-jxa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "osx-notifier": "^0.2.2",
+    "run-jxa": "^2.0.0"
+  }
+}
