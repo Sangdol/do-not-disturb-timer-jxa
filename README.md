@@ -24,4 +24,8 @@ Then you can run a command like this:
 ```sh
 # Enable Do Not Disturb for 10 minutes.
 node index.js 10
+
+# Turn on and off Do Not Disturb
+node onoff.js on
+node onoff.js off
 ```
