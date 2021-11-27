@@ -2,8 +2,11 @@ const { promisify } = require('util');
 const exec = promisify(require('child_process').exec);
 
 async function isOn () {
+  // Big Sur: NSStatusItem Visible DoNotDisturb
+  // Monterey: NSStatusItem Visible FocusModes
+  // https://www.reddit.com/r/osx/comments/ksbmay/big_sur_how_to_test_do_not_disturb_status_in/
   // eg., res = { stdout: '0\n', stderr: '' }
-  const res = await exec('defaults read com.apple.controlcenter "NSStatusItem Visible DoNotDisturb"')
+  const res = await exec('defaults read com.apple.controlcenter "NSStatusItem Visible FocusModes"')
   return res.stdout.trim() == '1'
 };
 
